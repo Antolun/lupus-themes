@@ -1,0 +1,35 @@
+<LUPPO>
+    <Source>
+        <Name>lupus-themes</Name>
+        <Homepage>https://github.com/Antolun/lupus-themes</Homepage>
+        <Packager>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>data</IsA>
+        <Summary>LupuS Themes</Summary>
+        <Description>LupuS Themes</Description>
+    </Source>
+
+    <Package>
+        <Name>lupus-themes</Name>
+        <Files>
+            <Path fileType="data">/usr/share/wallpapers/lupus-default</Path>
+            <Path fileType="data">/usr/share/icons/lupus-default</Path>
+            <Path fileType="data">/usr/share/plasma/look-and-feel/lupus-default</Path>
+            <Path fileType="data">/usr/share/plymouth/themes/lupus-default</Path>
+            <Path fileType="data">/usr/share/color-schemes/lupus-default.colors</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2026-08-22</Date>
+            <Version>2.0.0</Version>
+            <Comment>First Package Release</Comment>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Update>
+    </History>
+</LUPPO>
