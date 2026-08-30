@@ -17,6 +17,7 @@
         <Files>
             <Path fileType="data">/usr/share/wallpapers/lupus-default</Path>
             <Path fileType="data">/usr/share/icons/lupus-default</Path>
+            <Path fileType="data">/usr/share/icons/lupus.png</Path>
             <Path fileType="data">/usr/share/plasma/look-and-feel/lupus-default</Path>
             <Path fileType="data">/usr/share/plymouth/themes/lupus-default</Path>
             <Path fileType="data">/usr/share/color-schemes/lupus-default.colors</Path>
@@ -24,6 +25,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2026-08-30</Date>
+            <Version>2.0.1</Version>
+            <Comment>Theme update</Comment>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Update>
         <Update release="1">
             <Date>2026-08-22</Date>
             <Version>2.0.0</Version>
