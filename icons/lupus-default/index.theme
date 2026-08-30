@@ -1,6 +1,6 @@
 [Icon Theme]
-Name=LupuS Dark
-Comment=LupuS icon theme for dark interfaces
+Name=lupus-default
+Comment=LupuS ICON theme for dark interfaces
 Inherits=breeze-dark,elementary,Adwaita,gnome,hicolor
 
 Example=folder

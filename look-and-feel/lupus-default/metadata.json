@@ -1,0 +1,20 @@
+{
+  "KPackageStructure": "Plasma/LookAndFeel",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "solzic0@yandex.com",
+        "Name": "solzic0"
+      }
+    ],
+    "Category": "",
+    "Description": "A simple blue LupuS logo for Plasma Splashscreen",
+    "Id": "lupus-default",
+    "License": "GPLv3",
+    "Name": "lupus-default",
+    "Website": "https://github.com/Antolun/lupus-themes"
+  },
+  "Keywords": "Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;",
+  "X-Plasma-APIVersion": "2",
+  "X-Plasma-MainScript": "default"
+}
