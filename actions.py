@@ -18,14 +18,8 @@ def install():
     
     laf_dir = os.path.join(src_dir, "look-and-feel", "lupus-default")
     icons_dir = os.path.join(src_dir, "icons", "lupus-default")
-    
-    cscheme_path = os.path.join(src_dir, "color-schemes", "lupus-default.colors")
+
     lupus_path = os.path.join(src_dir, "lupus.png")
-    
-    if not os.path.isfile(cscheme_path):
-        cscheme_path = "color-schemes/lupus-default.colors"
-    if os.path.isfile(cscheme_path):
-        luppotools.insinto("/usr/share/color-schemes", cscheme_path)
     
     if not os.path.isfile(lupus_path):
         lupus_path = "lupus.png"
