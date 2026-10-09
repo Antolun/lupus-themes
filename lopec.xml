@@ -15,11 +15,17 @@
     <Package>
         <Name>lupus-themes</Name>
         <Files>
-            <Path fileType="data">/usr/share/wallpapers/lupus-default</Path>
-            <Path fileType="data">/usr/share/icons/lupus-default</Path>
+            <Path fileType="data">/usr/share/wallpapers/LupuS</Path>
+            <Path fileType="data">/usr/share/wallpapers/Blue</Path>
+            <Path fileType="data">/usr/share/wallpapers/BlueBerry</Path>
+            <Path fileType="data">/usr/share/wallpapers/Cities</Path>
+            <Path fileType="data">/usr/share/wallpapers/Wolf</Path>
+            <Path fileType="data">/usr/share/icons/LupuS</Path>
             <Path fileType="data">/usr/share/icons/lupus.png</Path>
-            <Path fileType="data">/usr/share/plasma/look-and-feel/lupus-default</Path>
-            <Path fileType="data">/usr/share/plymouth/themes/lupus-default</Path>
+            <Path fileType="data">/usr/share/plasma/look-and-feel/LupuS</Path>
+            <Path fileType="data">/usr/share/plymouth/themes/LupuS</Path>
+            <Path fileType="data">/usr/share/plymouth/themes/LupuS-Spinner</Path>
+            <Path fileType="data">/usr/share/plymouth/themes/LupuS-Animated</Path>
         </Files>
     </Package>
 
