@@ -1,0 +1,203 @@
+# ----------------------------------------------------------------------
+# LupuS OS - Antolun Plymouth Boot Theme Script
+# ----------------------------------------------------------------------
+
+# Window and Display Geometry
+screen_width  = Window.GetWidth();
+screen_height = Window.GetHeight();
+screen_x      = Window.GetX();
+screen_y      = Window.GetY();
+
+# Pure Black Background
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
+bg_image = Image("background.png");
+bg_image = bg_image.Scale(screen_width, screen_height);
+bg_sprite = Sprite(bg_image);
+bg_sprite.SetPosition(screen_x, screen_y, -100);
+
+# Responsive Scaling Factor (Reference: 1080p display)
+scale = screen_height / 1080.0;
+if (scale < 0.5)
+  scale = 0.5;
+if (scale > 2.0)
+  scale = 2.0;
+
+# Operating System Logo (lupus.png) - Placed Exactly in Screen Center
+logo_size = Math.Int(240 * scale);
+logo_image = Image("lupus.png");
+logo_image = logo_image.Scale(logo_size, logo_size);
+logo_sprite = Sprite(logo_image);
+
+logo_x = screen_x + (screen_width - logo_size) / 2;
+logo_y = screen_y + (screen_height - logo_size) / 2;
+logo_sprite.SetPosition(logo_x, logo_y, 10);
+
+# Loading Animation Frames (White Spinner, animation-*.png)
+# Spinner is centered vertically between the bottom of the lupus logo
+# and the top of the antolun logo.
+spinner_size = Math.Int(52 * scale);
+spinner_images = [];
+for (i = 0; i < 72; i++)
+  {
+    if (i < 10)
+      frame_file = "animation-0" + i + ".png";
+    else
+      frame_file = "animation-" + i + ".png";
+    
+    raw_frame = Image(frame_file);
+    spinner_images[i] = raw_frame.Scale(spinner_size, spinner_size);
+  }
+spinner_sprite = Sprite(spinner_images[0]);
+
+# Antolun logo top y (reference for centering)
+antolun_w = Math.Int(240 * scale);
+antolun_h = Math.Int(antolun_w * 234.0 / 1200.0);
+antolun_top_y = screen_y + screen_height - antolun_h - Math.Int(75 * scale);
+
+# Spinner centered in the gap between lupus bottom and antolun top
+logo_bottom_y = logo_y + logo_size;
+spinner_x = screen_x + (screen_width - spinner_size) / 2;
+spinner_y = logo_bottom_y + (antolun_top_y - logo_bottom_y - spinner_size) / 2;
+spinner_sprite.SetPosition(spinner_x, spinner_y, 10);
+
+# Company Branding Logo (antolun.png) - Placed at Bottom Center
+antolun_image = Image("antolun.png");
+antolun_image = antolun_image.Scale(antolun_w, antolun_h);
+antolun_sprite = Sprite(antolun_image);
+antolun_sprite.SetOpacity(0.95);
+
+antolun_x = screen_x + (screen_width - antolun_w) / 2;
+antolun_y = antolun_top_y;
+antolun_sprite.SetPosition(antolun_x, antolun_y, 10);
+
+# Refresh Callback (Animation Loop)
+anim_frame = 0;
+fun refresh_callback ()
+  {
+    anim_frame = (anim_frame + 1) % 72;
+    spinner_sprite.SetImage(spinner_images[anim_frame]);
+  }
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+# ----------------------------------------------------------------------
+# Dialog & Password Prompt (LUKS disk decryption / authentication)
+# ----------------------------------------------------------------------
+status = "normal";
+
+fun dialog_setup ()
+  {
+    local.entry;
+    local.lock;
+
+    entry.image = Image("entry.png");
+    lock.image  = Image("lock.png");
+    bullet_img  = Image("bullet.png");
+
+    entry.sprite = Sprite(entry.image);
+    lock.sprite  = Sprite(lock.image);
+
+    dialog_w = entry.image.GetWidth() + lock.image.GetWidth() + 10;
+    dialog_x = screen_x + (screen_width - dialog_w) / 2;
+    dialog_y = spinner_y + spinner_size + Math.Int(25 * scale);
+
+    lock.x = dialog_x;
+    lock.y = dialog_y + (entry.image.GetHeight() - lock.image.GetHeight()) / 2;
+    lock.sprite.SetPosition(lock.x, lock.y, 20);
+
+    entry.x = dialog_x + lock.image.GetWidth() + 10;
+    entry.y = dialog_y;
+    entry.sprite.SetPosition(entry.x, entry.y, 20);
+
+    global.dialog.entry = entry;
+    global.dialog.lock  = lock;
+    global.dialog.bullet_image = bullet_img;
+  }
+
+fun dialog_opacity (opacity)
+  {
+    if (global.dialog)
+      {
+        dialog.entry.sprite.SetOpacity(opacity);
+        dialog.lock.sprite.SetOpacity(opacity);
+        for (idx = 0; dialog.bullet[idx]; idx++)
+          {
+            dialog.bullet[idx].sprite.SetOpacity(opacity);
+          }
+      }
+  }
+
+fun display_normal_callback ()
+  {
+    global.status = "normal";
+    if (global.dialog)
+      dialog_opacity(0);
+  }
+
+fun display_password_callback (prompt, bullets)
+  {
+    global.status = "password";
+    if (!global.dialog)
+      dialog_setup();
+    else
+      dialog_opacity(1);
+
+    for (idx = 0; dialog.bullet[idx] || idx < bullets; idx++)
+      {
+        if (!dialog.bullet[idx])
+          {
+            dialog.bullet[idx].sprite = Sprite(dialog.bullet_image);
+            dialog.bullet[idx].x = dialog.entry.x + 14 + idx * (dialog.bullet_image.GetWidth() + 4);
+            dialog.bullet[idx].y = dialog.entry.y + dialog.entry.image.GetHeight() / 2 - dialog.bullet_image.GetHeight() / 2;
+            dialog.bullet[idx].sprite.SetPosition(dialog.bullet[idx].x, dialog.bullet[idx].y, 25);
+          }
+        if (idx < bullets)
+          dialog.bullet[idx].sprite.SetOpacity(1);
+        else
+          dialog.bullet[idx].sprite.SetOpacity(0);
+      }
+  }
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+# ----------------------------------------------------------------------
+# Message & Status Updates
+# ----------------------------------------------------------------------
+message_sprite = Sprite();
+
+fun display_message_callback (text)
+  {
+    msg_img = Image.Text(text, 0.9, 0.9, 0.9, 1);
+    message_sprite.SetImage(msg_img);
+    msg_x = screen_x + (screen_width - msg_img.GetWidth()) / 2;
+    msg_y = spinner_y + spinner_size + Math.Int(20 * scale);
+    message_sprite.SetPosition(msg_x, msg_y, 30);
+    message_sprite.SetOpacity(1);
+  }
+
+fun hide_message_callback (text)
+  {
+    message_sprite.SetOpacity(0);
+  }
+
+Plymouth.SetDisplayMessageFunction(display_message_callback);
+Plymouth.SetHideMessageFunction(hide_message_callback);
+
+# ----------------------------------------------------------------------
+# Boot Progress and Quit Callbacks
+# ----------------------------------------------------------------------
+fun progress_callback (duration, progress)
+  {
+  }
+
+Plymouth.SetBootProgressFunction(progress_callback);
+
+fun quit_callback ()
+  {
+    logo_sprite.SetOpacity(1);
+  }
+
+Plymouth.SetQuitFunction(quit_callback);

@@ -15,6 +15,7 @@ def install():
     
     plymouth_dir = os.path.join(src_dir, "plymouth", "lupus-default")
     plymouth2_dir = os.path.join(src_dir, "plymouth", "lupus-spinner")
+    plymouth3_dir = os.path.join(src_dir, "plymouth", "lupus-antolun")
     
     laf_dir = os.path.join(src_dir, "look-and-feel", "lupus-default")
     icons_dir = os.path.join(src_dir, "icons", "lupus-default")
@@ -40,6 +41,11 @@ def install():
         plymouth2_dir = "plymouth/lupus-spinner"
     if os.path.isdir(plymouth2_dir):
         luppotools.insinto("/usr/share/plymouth/themes", plymouth2_dir)
+
+    if not os.path.isdir(plymouth3_dir):
+        plymouth3_dir = "plymouth/lupus-antolun"
+    if os.path.isdir(plymouth3_dir):
+        luppotools.insinto("/usr/share/plymouth/themes", plymouth3_dir)
 
     if not os.path.isdir(laf_dir):
         laf_dir = "look-and-feel/lupus-default"

@@ -33,7 +33,7 @@ Rectangle {
         Image {
             id: logo
             //match SDDM/lockscreen avatar positioning
-            property real size: units.gridUnit * 16
+            property real size: units.gridUnit * 10
 
             anchors.centerIn: parent
 
@@ -48,7 +48,7 @@ Rectangle {
             //in the middle of the remaining space
             y: parent.height - (parent.height - logo.y) / 2 - height/2
             anchors.horizontalCenter: parent.horizontalCenter
-            source: "images/busy02.svg"
+            source: "images/busy.svg"
             sourceSize.height: units.gridUnit * 3
             sourceSize.width: units.gridUnit * 3
             RotationAnimator on rotation {

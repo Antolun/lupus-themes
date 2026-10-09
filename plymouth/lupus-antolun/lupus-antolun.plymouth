@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=lupus-antolun
+Description=LupuS OS Plymouth boot theme with Antolun branding and loading animation
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/lupus-antolun
+ScriptFile=/usr/share/plymouth/themes/lupus-antolun/lupus-antolun.script
