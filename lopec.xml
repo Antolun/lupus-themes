@@ -1,10 +1,10 @@
 <LUPPO>
     <Source>
         <Name>lupus-themes</Name>
-        <Homepage>https://github.com/Antolun/lupus-themes</Homepage>
+        <Homepage>https://github.com/TOSEC/lupus-themes</Homepage>
         <Packager>
-            <Name>Solzic0</Name>
-            <Email>solzic0@yandex.com</Email>
+            <Name>Kurtürk</Name>
+            <Email>kurturkish@yandex.com</Email>
         </Packager>
         <License>GPLv3</License>
         <IsA>data</IsA>
@@ -30,33 +30,40 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2026-10-21</Date>
+            <Version>2.0.3</Version>
+            <Comment>New Wallpaper update!</Comment>
+            <Name>Kurtürk</Name>
+            <Email>kurturkish@yandex.com</Email>
+        </Update>
         <Update release="4">
             <Date>2026-10-9</Date>
             <Version>2.0.3</Version>
             <Comment>New Plymouth theme!</Comment>
-            <Name>Solzic0</Name>
-            <Email>solzic0@yandex.com</Email>
+            <Name>Kurtürk</Name>
+            <Email>kurturkish@yandex.com</Email>
         </Update>
         <Update release="3">
             <Date>2026-09-21</Date>
             <Version>2.0.2</Version>
             <Comment>Wallpaper update</Comment>
-            <Name>Solzic0</Name>
-            <Email>solzic0@yandex.com</Email>
+            <Name>Kurtürk</Name>
+            <Email>kurturkish@yandex.com</Email>
         </Update>
         <Update release="2">
             <Date>2026-08-30</Date>
             <Version>2.0.1</Version>
             <Comment>Theme update</Comment>
-            <Name>Solzic0</Name>
-            <Email>solzic0@yandex.com</Email>
+            <Name>Kurtürk</Name>
+            <Email>kurturkish@yandex.com</Email>
         </Update>
         <Update release="1">
             <Date>2026-08-22</Date>
             <Version>2.0.0</Version>
             <Comment>First Package Release</Comment>
-            <Name>Solzic0</Name>
-            <Email>solzic0@yandex.com</Email>
+            <Name>Kurtürk</Name>
+            <Email>kurturkish@yandex.com</Email>
         </Update>
     </History>
 </LUPPO>

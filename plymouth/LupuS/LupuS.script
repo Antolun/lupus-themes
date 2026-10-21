@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# LupuS OS - Antolun Plymouth Boot Theme Script
+# LupuS OS - TOSEC Plymouth Boot Theme Script
 # ----------------------------------------------------------------------
 
 # Window and Display Geometry
@@ -36,7 +36,7 @@ logo_sprite.SetPosition(logo_x, logo_y, 10);
 
 # Loading Animation Frames (White Spinner, animation-*.png)
 # Spinner is centered vertically between the bottom of the lupus logo
-# and the top of the antolun logo.
+# and the top of the watermark logo.
 spinner_size = Math.Int(52 * scale);
 spinner_images = [];
 for (i = 0; i < 72; i++)
@@ -45,32 +45,32 @@ for (i = 0; i < 72; i++)
       frame_file = "animation-0" + i + ".png";
     else
       frame_file = "animation-" + i + ".png";
-    
+
     raw_frame = Image(frame_file);
     spinner_images[i] = raw_frame.Scale(spinner_size, spinner_size);
   }
 spinner_sprite = Sprite(spinner_images[0]);
 
-# Antolun logo top y (reference for centering)
-antolun_w = Math.Int(240 * scale);
-antolun_h = Math.Int(antolun_w * 234.0 / 1200.0);
-antolun_top_y = screen_y + screen_height - antolun_h - Math.Int(75 * scale);
+# TOSEC logo top y (reference for centering)
+watermark_w = Math.Int(240 * scale);
+watermark_h = Math.Int(watermark_w * 234.0 / 900.0);
+watermark_top_y = screen_y + screen_height - watermark_h - Math.Int(75 * scale);
 
-# Spinner centered in the gap between lupus bottom and antolun top
+# Spinner centered in the gap between lupus bottom and watermark top
 logo_bottom_y = logo_y + logo_size;
 spinner_x = screen_x + (screen_width - spinner_size) / 2;
-spinner_y = logo_bottom_y + (antolun_top_y - logo_bottom_y - spinner_size) / 2;
+spinner_y = logo_bottom_y + (watermark_top_y - logo_bottom_y - spinner_size) / 2;
 spinner_sprite.SetPosition(spinner_x, spinner_y, 10);
 
-# Company Branding Logo (antolun.png) - Placed at Bottom Center
-antolun_image = Image("antolun.png");
-antolun_image = antolun_image.Scale(antolun_w, antolun_h);
-antolun_sprite = Sprite(antolun_image);
-antolun_sprite.SetOpacity(0.95);
+# Company Branding Logo (watermark.png) - Placed at Bottom Center
+watermark_image = Image("watermark.png");
+watermark_image = watermark_image.Scale(watermark_w, watermark_h);
+watermark_sprite = Sprite(watermark_image);
+watermark_sprite.SetOpacity(0.95);
 
-antolun_x = screen_x + (screen_width - antolun_w) / 2;
-antolun_y = antolun_top_y;
-antolun_sprite.SetPosition(antolun_x, antolun_y, 10);
+watermark_x = screen_x + (screen_width - watermark_w) / 2;
+watermark_y = watermark_top_y;
+watermark_sprite.SetPosition(watermark_x, watermark_y, 10);
 
 # Refresh Callback (Animation Loop)
 anim_frame = 0;
