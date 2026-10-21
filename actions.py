@@ -53,7 +53,7 @@ def install():
     if os.path.isdir(plymouth_dir):
         luppotools.insinto("/usr/share/plymouth/themes", plymouth_dir)
 
-    plymouth2_dir = os.path.join(src_dir, "plymouth", "LupuS-Spinnner")
+    plymouth2_dir = os.path.join(src_dir, "plymouth", "LupuS-Spinner")
 
     if not os.path.isdir(plymouth2_dir):
         plymouth2_dir = "plymouth/LupuS-Spinner"
