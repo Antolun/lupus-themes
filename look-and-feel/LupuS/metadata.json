@@ -3,8 +3,8 @@
   "KPlugin": {
     "Authors": [
       {
-        "Email": "solzic0@yandex.com",
-        "Name": "solzic0"
+        "Email": "kurturkish@yandex.com",
+        "Name": "kurturk"
       }
     ],
     "Category": "",
@@ -12,7 +12,7 @@
     "Id": "lupus-default",
     "License": "GPLv3",
     "Name": "lupus-default",
-    "Website": "https://github.com/Antolun/lupus-themes"
+    "Website": "https://github.com/TUSECO/lupus-themes"
   },
   "Keywords": "Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;",
   "X-Plasma-APIVersion": "2",

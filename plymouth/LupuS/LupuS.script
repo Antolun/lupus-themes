@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# LupuS OS - TOSEC Plymouth Boot Theme Script
+# LupuS OS - TUSECO Plymouth Boot Theme Script
 # ----------------------------------------------------------------------
 
 # Window and Display Geometry
@@ -51,7 +51,7 @@ for (i = 0; i < 72; i++)
   }
 spinner_sprite = Sprite(spinner_images[0]);
 
-# TOSEC logo top y (reference for centering)
+# TUSECO logo top y (reference for centering)
 watermark_w = Math.Int(240 * scale);
 watermark_h = Math.Int(watermark_w * 234.0 / 900.0);
 watermark_top_y = screen_y + screen_height - watermark_h - Math.Int(75 * scale);

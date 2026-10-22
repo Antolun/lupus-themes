@@ -3,7 +3,7 @@
 ### Installation & Package Build
 ```bash
 # 1. Clone the Repository
-git clone https://github.com/TOSEC/lupus-themes.git
+git clone https://github.com/TUSECO/lupus-themes.git
 cd lupus-themes
 
 # 2. Start Build
